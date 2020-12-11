@@ -37,9 +37,9 @@ class Game{
     
     play(){
         
-                 form.hide();
+                form.hide();
 
-                 Player.getPlayerInfo();
+                Player.getPlayerInfo();
                  image(back_img, 0, 0, 1000, 800);
                  var x =100;
                  var y=200;
@@ -57,22 +57,16 @@ class Game{
                        
                      if(index === player.index){
                          
-                         fill("red");
-                         stroke(0)
-                         strokeWeight(3)
+                         fill("black");
                          textSize(25);
-                         text(allPlayers[plr].name  ,x-25,y+25);
-
-                         fill("cyan");
-                         stroke("red")
-                         strokeWeight(3)
-                         textSize(25);
-                         text(allPlayers[plr].name + " : " + allPlayers[plr].score ,50,125);
+                         text(allPlayers[plr].name ,x-25,y+25);
 
                          
-                     }                  
-
+                     }
+                     text("Player Score"+allPlayers.player2.score,50,100);
+                    
                      
+                 
                  }
                 
                 
@@ -104,28 +98,22 @@ class Game{
                          break;
                      }
                      fruitGroup.add(fruits);
-
-                   
-                 }
-
-                 if (player.index !== null) {
-                    for (var i = 0; i < fruitGroup.length; i++) {
-                        if (fruitGroup.get(i).isTouching(players)) {
-                          fruitGroup.get(i).destroy();
-                          player.score = player.score + 1;
-                          player.update();
-                        }
                      
-                      }
+                 }
                  
-                 
-                  
-
-                      
+                  if (player.index !== null) {
+                     //fill code here, to destroy the objects.
+                     for(var i = 0;i<fruitGroup.length;i++){
+                         if(fruitGroup.get(i).isTouching(players)){
+                             fruitGroup.get(i).destroy();
+                             player.score = player.score+1;
+                             player.update();
+                            
+                         }
                      
                   }
                 
-
+                }
          
          
         
